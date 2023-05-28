@@ -93,3 +93,35 @@ VSCでCodeWhispererを使って見たメモ
     - `DEVELOPER TOOLS` -> `Connected with・・・`を確認し、AWS Builder IDでない場合は、右クリックして`Switch Connections`で`AWS Builder IDを選択する`
     - `Connected with・・・`の右クリックで、`Sign out`を選びサインアウトする。
         - ![disconnect click](./figures/codewhispere_process_builderid_11.png)
+
+## CodeWhispererの利用(AWS Cloud9の場合)
+### AWS Cloud9のユーザ用ロール作成
+Clud9ユーザを模擬したロールを作成
+- Role名: `任意`
+- 信頼先: `スイッチロール元のAWSアカウント`
+- 付与するポリシー
+    - マネージドポリシー
+        - AWSCloud9User
+        - ReadOnlyAccess
+    - インラインポリシー
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "CodeWhispererPermissions",
+                "Effect": "Allow",
+                "Action": ["codewhisperer:GenerateRecommendations"],
+                "Resource": "*"
+            }
+        ]
+    }
+    ```
+### AWS Cloud9インスタンス作成とIDE環境へログイン
+- Cloud9インスタンス作成してIDE環境に入る
+### 操作
+- CodeWhispereの開始
+    - 左のメニューからAWS tookkit(AWSアイコン)を開く
+    - `DEVELOPER TOOLS`-> `CodeWhispere`をクリックして開く
+    - Startボタンを押してClodeWhispereを開始する。
+    - ![setting](figures/cloud9_01.png)
