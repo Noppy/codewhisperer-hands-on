@@ -125,3 +125,14 @@ Clud9ユーザを模擬したロールを作成
     - `DEVELOPER TOOLS`-> `CodeWhispere`をクリックして開く
     - Startボタンを押してClodeWhispereを開始する。
     - ![setting](figures/cloud9_01.png)
+
+
+
+## CodeWhispererを深掘り
+### エンドポイント
+- AWSドキュメント -> `非公開`の模様
+    -[Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html)にAmazon CodeWhispererの記載なし
+    - AmazonCodeWhispererユーザーガイド
+        - 記載なし
+        - 実行リージョンについては、service-lined roleの説明で`us-east-1`でのみ実行していることが記載
+            - [Supported Regions for CodeWhisperer service-linked roles](https://docs.aws.amazon.com/codewhisperer/latest/userguide/using-service-linked-roles.html)
